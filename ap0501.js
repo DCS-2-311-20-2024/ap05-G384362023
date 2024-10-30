@@ -29,6 +29,7 @@ function init() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setClearColor(0x406080);
   // レンダラに影の処理をさせる
+  renderer.shadowMap.enabled = true;
   
   // Webページに描画領域を対応させる
   document.getElementById("WebGL-output")
@@ -58,6 +59,8 @@ function init() {
   cube.position.y = 2;
   cube.position.x = -3;
   // 立方体は影を作る
+  cube.castShadow = true;
+  cube.receiveShadow = true;
   
   // シーンに立方体を加える
   scene.add(cube);
@@ -73,6 +76,8 @@ function init() {
   sphere.position.set(2.5, 2, -1);
  
   // 球は影を作る
+  sphere.castShadow = true;
+  sphere.receiveShadow = true;
   
   // シーンに球を加える
   scene.add(sphere);
@@ -83,6 +88,7 @@ function init() {
     new THREE.MeshLambertMaterial({ color: 0x008010 }));
   circle.rotation.x = -Math.PI / 2;
   // 平面は影を受け止める
+  circle.receiveShadow = true;
   
   // シーンに平面を加える
   scene.add(circle);
@@ -115,6 +121,8 @@ function init() {
     ]
   )
   // 自販機1の影の設定
+  vender01.castShadow = true;
+  vender01.receiveShadow = true;
 
   // 自販機1の位置の設定
   vender01.position.y = 1.8/2;
@@ -136,6 +144,8 @@ function init() {
     ]
   )
   // 自販機2の影の設定
+  vender02.castShadow = true;
+  vender02.receiveShadow = true;
   
   // 自販機2の位置の設定
   vender02.position.y=1.8/2;
